@@ -2,6 +2,7 @@ import os
 import json
 from google import genai
 from dotenv import load_dotenv
+import time
 
 load_dotenv()
 
@@ -10,14 +11,26 @@ client = genai.Client(api_key = os.getenv("GEMINI_API_KEY"))
 def get_completion(prompt: str) -> str:
     """
     Single responsibility: Send prompt to Gemini, return text response.
-    No business logic. No formatting. Just the API call.
+    Includes retry logic for 503 server busy errors.
     """
 
-    response = client.models.generate_content(
-       model = "gemini-3.8-flash",
-       contents = prompt
-    )
-    return response.text
+    max_retries = 3
+    wait_seconds = 5
+
+    for attempt in range(max_retries):
+        try:
+            response = client.models.generate_content(
+                model="gemini-3.8-flash",
+                contents=prompt
+            )
+            return response.text
+
+        except Exception as e:
+            if "503" in str(e) and attempt < max_retries - 1:
+                print(f"      Server busy, retrying in {wait_seconds}s... (attempt {attempt + 1}/{max_retries})")
+                time.sleep(wait_seconds)
+            else:
+                raise
 
 def get_structured_response(prompt: str) -> dict:
     """
