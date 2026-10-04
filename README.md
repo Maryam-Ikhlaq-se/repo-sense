@@ -1,6 +1,6 @@
 # RepoSense — AI-Powered Codebase Intelligence Tool
 
-RepoSense analyzes any public GitHub repository and produces a structured quality report. It combines static code analysis with LLM interpretation to give developers actionable insights about architecture, code quality, and technical risks — in under a minute.
+RepoSense analyzes any public GitHub repository and produces a structured quality report. It combines static code analysis with LLM interpretation to give developers actionable insights about architecture, code quality, and technical risks.
 
 ---
 
@@ -27,7 +27,7 @@ GitHub URL → Fetch Code → Measure Quality → LLM Interpretation → Markdow
 
 ## AI Approach
 
-RepoSense uses LLM-Augmented Static Code Analysis — not pure AI guessing.
+RepoSense uses LLM-Augmented Static Code Analysis.
 
 | Step | Method |
 |------|--------|
@@ -55,34 +55,34 @@ The LLM is given measured, factual metrics rather than raw code alone. This grou
 
 ## Project Structure
 
+```
 repo-sense/
 │
-├── ingestion/ # Layer 1 — Data fetching
-│ ├── github_fetcher.py # Fetches repo files via GitHub API
-│ └── file_parser.py # Filters relevant source code files
+├── ingestion/                  # Layer 1 — Data fetching
+│   ├── github_fetcher.py       # Fetches repo files via GitHub API
+│   └── file_parser.py          # Filters relevant source code files
 │
-├── analysis/ # Layer 2 — Quality measurement
-│ └── quality_analyzer.py # Computes static quality metrics
+├── analysis/                   # Layer 2 — Quality measurement
+│   └── quality_analyzer.py     # Computes static quality metrics
 │
-├── llm/ # Layer 3 — AI interpretation
-│ ├── prompt_builder.py # Builds structured prompts
-│ └── gemini_client.py # Calls Google Gemini API
+├── llm/                        # Layer 3 — AI interpretation
+│   ├── prompt_builder.py       # Builds structured prompts
+│   └── gemini_client.py        # Calls Google Gemini API
 │
-├── output/ # Layer 4 — Report generation
-│ └── report_generator.py # Assembles markdown report
+├── output/                     # Layer 4 — Report generation
+│   └── report_generator.py     # Assembles markdown report
 │
-├── tests/ # All test files
-│ ├── test_connection.py
-│ ├── test_ingestion.py
-│ ├── test_llm.py
-│ └── test_quality.py
+├── tests/                      # All test files
+│   ├── test_connection.py
+│   ├── test_ingestion.py
+│   ├── test_llm.py
+│   └── test_quality.py
 │
-├── main.py # Entry point — connects all layers
-├── .env # API key (not committed)
-├── .env.example # Template for API key setup
-└── README.md # This file
-
-
+├── main.py                     # Entry point — connects all layers
+├── .env                        # API key (not committed)
+├── .env.example                # Template for API key setup
+└── README.md                   # This file
+```
 ---
 
 ## Architecture
@@ -176,13 +176,14 @@ The report is saved as `report.md` in the project root.
 
 ## Academic Context
 
-Developed as part of an MS Software Engineering Final Year Project.
+Developed as part of BS Software Engineering semester project.
 
 Research Question: Does combining LLM interpretation with static code quality metrics produce more accurate and actionable codebase analysis than either approach alone?
 
 Courses applied:
 - Software Design and Architecture (Layered architecture, SOLID principles, design patterns)
 - Software Quality Engineering  (ISO/IEC 25010 quality attributes, cyclomatic complexity, maintainability index)
+- Applied prompt engineering and context grounding techniques for LLM-based code analysis.
 
 ---
 
@@ -196,11 +197,6 @@ A browser-based interface built on FastAPI where users paste a GitHub URL, view 
 
 ### CI/CD Integration
 A GitHub Action that runs RepoSense automatically on every pull request, posts the quality report as a PR comment, and optionally blocks merges if the health score drops below a defined threshold.
-
----
-## Real-World Applications
-
-Pakistani software houses spend weeks onboarding new developers onto existing codebases. RepoSense reduces that to minutes by producing an instant architecture summary and quality audit. Freelancers can use it for due diligence before taking on a project. Tech leads can use it to identify high-risk files before code review.
 
 ---
 
