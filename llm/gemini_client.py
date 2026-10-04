@@ -14,8 +14,8 @@ def get_completion(prompt: str) -> str:
     Includes retry logic for 503 server busy errors.
     """
 
-    max_retries = 3
-    wait_seconds = 5
+    max_retries = 5
+    wait_seconds = 10
 
     for attempt in range(max_retries):
         try:

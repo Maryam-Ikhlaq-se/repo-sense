@@ -56,33 +56,30 @@ RepoSense uses **LLM-Augmented Static Code Analysis** — not pure AI guessing.
 | **Test Detection** | Presence of test files | Missing tests = high deployment risk |
 
 ---
-
 ## 📁 Project Structure
 
+```
 repo-sense/
 │
-├── ingestion/ # Layer 1 — Data fetching
-│ ├── github_fetcher.py # Fetches repo files via GitHub API
-│ └── file_parser.py # Filters relevant source code files
-|
+├── ingestion/                  # Layer 1 — Data fetching
+│   ├── github_fetcher.py       # Fetches repo files via GitHub API
+│   └── file_parser.py          # Filters relevant source code files
 │
-├── analysis/ # Layer 2 — Quality measurement
-│ └── quality_analyzer.py # Computes static quality metrics
+├── analysis/                   # Layer 2 — Quality measurement
+│   └── quality_analyzer.py     # Computes static quality metrics
 │
-|
-├── llm/ # Layer 3 — AI interpretation
-│ ├── prompt_builder.py # Builds structured prompts
-│ └── gemini_client.py # Calls Google Gemini API
+├── llm/                        # Layer 3 — AI interpretation
+│   ├── prompt_builder.py       # Builds structured prompts
+│   └── gemini_client.py        # Calls Google Gemini API
 │
-|
-├── output/ # Layer 4 — Report generation
-│ └── report_generator.py # Assembles markdown report
+├── output/                     # Layer 4 — Report generation
+│   └── report_generator.py     # Assembles markdown report
 │
-|
-├── main.py # Entry point — connects all layers
-├── .env # API key (not committed)
-├── .env.example # Template for API key setup
-└── README.md # This file
+├── main.py                     # Entry point — connects all layers
+├── .env                        # API key (not committed)
+├── .env.example                # Template for API key setup
+└── README.md                   # This file
+```
 ---
 
 ## 🏗️ Architecture
