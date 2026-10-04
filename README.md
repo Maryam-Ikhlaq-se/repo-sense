@@ -1,4 +1,4 @@
-# RepoSense — AI-Powered Codebase Intelligence Tool
+# RepoSense AI-Powered Codebase Intelligence Tool
 
 RepoSense analyzes any public GitHub repository and produces a structured quality report. It combines static code analysis with LLM interpretation to give developers actionable insights about architecture, code quality, and technical risks.
 
