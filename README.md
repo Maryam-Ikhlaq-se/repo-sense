@@ -1,4 +1,4 @@
-# RepoSense — AI-Powered Codebase Intelligence Tool
+# RepoSense AI-Powered Codebase Intelligence Tool
 
 RepoSense analyzes any public GitHub repository and produces a structured quality report. It combines static code analysis with LLM interpretation to give developers actionable insights about architecture, code quality, and technical risks.
 
@@ -88,7 +88,7 @@ repo-sense/
 ## Architecture
 
 RepoSense follows a strict **Layered Architecture** pattern where each layer has a single responsibility and communicates only with the layer directly below it.
-
+```
 [ Output Layer ] ← Formats and saves the report
 ↑
 [ LLM Layer ] ← Interprets metrics using Gemini
@@ -96,7 +96,7 @@ RepoSense follows a strict **Layered Architecture** pattern where each layer has
 [ Analysis Layer ] ← Measures code quality statically
 ↑
 [ Ingestion Layer ] ← Fetches raw data from GitHub
-
+```
 
 This follows SOLID principles applied in Software Design and Architecture.
 
