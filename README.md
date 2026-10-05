@@ -102,6 +102,11 @@ This follows SOLID principles applied in Software Design and Architecture.
 
 ---
 
+## Architecture Diagrams
+
+- [Component Diagram](docs/reposense_component_diagram.png)
+- [Sequence Diagram](docs/reposense_sequence_diagram.png)
+- [Activity Diagram](docs/reposense_activity_diagram.png)
 ## Sample Output
 
 RepoSense Analysis Report
